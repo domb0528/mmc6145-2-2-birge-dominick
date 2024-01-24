@@ -16,6 +16,23 @@ export default function App() {
     reset: timerReset,
   } = useTimer();
 
+  function starting(){
+    timerStart();
+  }
+
+  function stopping() {
+    timerStop();
+    setPreviousTime(time);
+    if(time < bestTime || bestTime===undefined){
+      setBestTime(time);
+    }
+    resetting();
+  }
+
+  function resetting(){
+    timerReset();
+  }
+
   const cardTexts = [
     "Bunny 🐰",
     "Frog 🐸",
